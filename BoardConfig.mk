@@ -34,7 +34,7 @@ BOARD_KERNEL_TAGS_OFFSET := 0x01E00000
 BOARD_RAMDISK_OFFSET     := 0x02000000
 
 BOARD_KERNEL_SEPARATED_DT := true
-BOARD_CUSTOM_BOOTIMG_MK := device/sony/rhine/mkbootimg.mk
+BOARD_CUSTOM_BOOTIMG_MK := device/sony/rhine-common/mkbootimg.mk
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset $(BOARD_RAMDISK_OFFSET) --tags_offset $(BOARD_KERNEL_TAGS_OFFSET)
 
 BOARD_KERNEL_CMDLINE := androidboot.hardware=rhine androidboot.selinux=permissive
@@ -53,14 +53,14 @@ BOARD_USERDATAIMAGE_PARTITION_SIZE := 12891143680
 BOARD_BOOTIMAGE_PARTITION_SIZE := 20971520
 BOARD_FLASH_BLOCK_SIZE := 131072
 
-TARGET_RECOVERY_FSTAB = device/sony/rhine/rootdir/fstab.rhine
+TARGET_RECOVERY_FSTAB = device/sony/rhine-common/rootdir/fstab.rhine
 
 USE_OPENGL_RENDERER := true
 MAX_EGL_CACHE_KEY_SIZE := 12*1024
 MAX_EGL_CACHE_SIZE := 2048*1024
 OVERRIDE_RS_DRIVER := libRSDriver_adreno.so
 NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
-BOARD_EGL_CFG := device/sony/rhine/rootdir/system/lib/egl/egl.cfg
+BOARD_EGL_CFG := device/sony/rhine-common/rootdir/system/lib/egl/egl.cfg
 
 # Audio
 BOARD_USES_ALSA_AUDIO := true
@@ -84,7 +84,7 @@ WPA_SUPPLICANT_VERSION := VER_0_8_X
 
 # BT definitions for Qualcomm solution
 BLUETOOTH_HCI_USE_MCT := true
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/sony/rhine/bluetooth
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/sony/rhine-common/bluetooth
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_QCOM := true
 
@@ -95,7 +95,7 @@ TARGET_NO_RPC := true
 # Charger
 BOARD_CHARGER_ENABLE_SUSPEND := true
 
-TARGET_SYSTEM_PROP := device/sony/rhine/system.prop
+TARGET_SYSTEM_PROP := device/sony/rhine-common/system.prop
 
 # Include an expanded selection of fonts
 EXTENDED_FONT_FOOTPRINT := true
@@ -107,4 +107,3 @@ endif
 
 BUILD_KERNEL := true
 -include vendor/sony/kernel/KernelConfig.mk
-

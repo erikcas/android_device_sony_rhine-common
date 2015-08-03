@@ -15,9 +15,9 @@
 SOMC_PLATFORM := rhine
 
 DEVICE_PACKAGE_OVERLAYS += \
-    device/sony/rhine/overlay
+    device/sony/rhine-common/overlay
 
-SONY_ROOT = device/sony/rhine/rootdir
+SONY_ROOT = device/sony/rhine-common/rootdir
 PRODUCT_COPY_FILES += \
     $(SONY_ROOT)/fstab.rhine:root/fstab.rhine \
     $(SONY_ROOT)/init.rhine.rc:root/init.rhine.rc \
