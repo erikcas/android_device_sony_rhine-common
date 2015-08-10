@@ -40,3 +40,6 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PROPERTY_OVERRIDES += \
     camera2.portability.force_api=1
+
+PRODUCT_COPY_FILES += \
+     device/sony/rhine-common/rootdir/$(DEVICE_RESOLUTION).rle:root/logo.rle
