@@ -12,6 +12,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+# implement CM camerawrapper
+TARGET_PROVIDES_CAMERA_HAL := true
+TARGET_RELEASE_CPPFLAGS += -DNEEDS_VECTORIMPL_SYMBOLS
+
 # TWRP
 BOARD_HAS_NO_SELECT_BUTTON := true
 
