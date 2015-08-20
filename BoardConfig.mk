@@ -35,7 +35,7 @@ BOARD_KERNEL_SEPARATED_DT := true
 BOARD_CUSTOM_BOOTIMG_MK := device/sony/rhine-common/mkbootimg.mk
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset $(BOARD_RAMDISK_OFFSET) --tags_offset $(BOARD_KERNEL_TAGS_OFFSET)
 
-BOARD_KERNEL_CMDLINE := androidboot.hardware=rhine androidboot.selinux=permissive
+BOARD_KERNEL_CMDLINE := androidboot.hardware=rhine androidboot.selinux=0
 BOARD_KERNEL_CMDLINE += user_debug=31 msm_rtb.filter=0x3F ehci-hcd.park=3 lpj=192598
 BOARD_KERNEL_CMDLINE += dwc3.maximum_speed=high dwc3_msm.prop_chg_detect=Y
 BOARD_KERNEL_CMDLINE += console=ttyHSL0,115200,n8
