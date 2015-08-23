@@ -12,6 +12,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+# Camera Parameters
+TARGET_SPECIFIC_HEADER_PATH += device/sony/rhine-common/include
+
 # implement CM camerawrapper
 BOARD_USES_QCOM_HARDWARE := true
 TARGET_USE_QCOM_BIONIC_OPTIMIZATION := true
