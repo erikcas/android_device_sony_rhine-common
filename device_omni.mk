@@ -34,19 +34,3 @@ DEVICE_PACKAGE_OVERLAYS += \
 
 PRODUCT_COPY_FILES += \
      device/sony/rhine-common/rootdir/$(DEVICE_RESOLUTION).rle:root/logo.rle
-
-# Extra packages and config for media
-PRODUCT_PACKAGES += \
-    audio_policy.msm8974 \
-    audiod \
-    libdivxdrmdecrypt
-
-PRODUCT_PROPERTY_OVERRIDES += \
-    af.resampler.quality=4 \
-    audio.offload.buffer.size.kb=32 \
-    audio.offload.gapless.enabled=true \
-    use.voice.path.for.pcm.voip=true \
-    av.offload.enable=false \
-    av.streaming.offload.enable=false \
-    audio.offload.pcm.16bit.enable=true \
-    audio.offload.multiple.enabled=false
