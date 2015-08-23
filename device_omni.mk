@@ -31,19 +31,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Omni specific overlay
 DEVICE_PACKAGE_OVERLAYS += \
     device/sony/rhine-common/overlay-omni
-
-# implement CM camerawrapper
-PRODUCT_PACKAGES += \
-    camera.rhine \
-    CameraWorkaround \
-    libcutilz
-
 PRODUCT_PROPERTY_OVERRIDES += \
     camera2.portability.force_api=1
 
 PRODUCT_COPY_FILES += \
      device/sony/rhine-common/rootdir/$(DEVICE_RESOLUTION).rle:root/logo.rle
-
-#Camera
-PRODUCT_PROPERTY_OVERRIDES += \
-    camera2.portability.force_api=1
