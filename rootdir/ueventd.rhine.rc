@@ -115,9 +115,58 @@
 /sys/devices/virtual/graphics/fb1/avi_cn0_1           0664 system graphics
 /sys/devices/virtual/graphics/fb1/hpd                 0664 system graphics
 /sys/devices/virtual/graphics/fb1/video_mode          0664 system graphics
+/sys/devices/virtual/graphics/fb1/format_3d           0664 system system
 /sys/devices/virtual/graphics/fb1/vendor_name         0664 system graphics
 /sys/devices/virtual/graphics/fb1/product_description 0664 system graphics
 /sys/devices/virtual/graphics/fb1/hdcp/tp             0664 system graphics
 /sys/devices/virtual/graphics/fb2/ad                  0664 system graphics
 /sys/devices/sony_camera_0/info                       0666 camera camera
 /sys/devices/sony_camera_1/info                       0666 camera camera
+/sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq 0666 system system
+/sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 0666 system system
+/sys/devices/system/cpu/mfreq                         0220 root system
+/sys/devices/system/cpu/cpu1/online                   0664 root system
+/sys/devices/system/cpu/cpu2/online                   0664 root system
+/sys/devices/system/cpu/cpu3/online                   0664 root system
+/sys/devices/platform/msm_sdcc.1/polling              0664  system system
+/sys/devices/platform/msm_sdcc.2/polling              0664 system system
+/sys/devices/platform/msm_sdcc.3/polling              0664 system system
+/sys/devices/platform/msm_sdcc.4/polling              0664 system system
+
+# Sensors
+/sys/devices/f9967000.i2c/i2c-4/4-0072/mhl/sii8334    mouse_mode   0660  system  system
+/sys/devices/f9967000.i2c/i2c-4/4-0072/mhl/sii8334    mouse_move_distance_dx   0660  system  system
+/sys/devices/f9967000.i2c/i2c-4/4-0072/mhl/sii8334    mouse_move_distance_dy   0660  system  system
+/sys/devices/f9967000.i2c/i2c-4/4-0072/mhl/sii8334    screen_status 0660  system  system
+/sys/devices/i2c-12/12-*  pollrate_ms 0664 system system
+/sys/devices/virtual/bst/bma* bandwidth         0600  system  system
+/sys/devices/virtual/bst/bma* delay             0600  system  system
+/sys/devices/virtual/bst/bma* enable            0600  system  system
+/sys/devices/virtual/bst/bma* mode              0600  system  system
+/sys/devices/virtual/bst/bma* offset_x          0600  system  system
+/sys/devices/virtual/bst/bma* offset_y          0600  system  system
+/sys/devices/virtual/bst/bma* offset_z          0600  system  system
+/sys/devices/virtual/bst/bma* range             0600  system  system
+/sys/devices/virtual/bst/bma* value             0400  system  system
+/sys/devices/virtual/bst/bmg* bandwidth         0600  system  system
+/sys/devices/virtual/bst/bmg* delay             0600  system  system
+/sys/devices/virtual/bst/bmg* enable            0600  system  system
+/sys/devices/virtual/bst/bmg* offset_x          0600  system  system
+/sys/devices/virtual/bst/bmg* offset_y          0600  system  system
+/sys/devices/virtual/bst/bmg* offset_z          0600  system  system
+/sys/devices/virtual/bst/bmg* op_mode           0600  system  system
+/sys/devices/virtual/bst/bmg* range             0600  system  system
+/sys/devices/virtual/bst/bmg* value             0400  system  system
+/sys/devices/virtual/input/input* als_adc_data   0444  system  system
+/sys/devices/virtual/input/input* continuous    0200  system  system
+/sys/devices/virtual/input/input* interval      0600  system  system
+/sys/devices/virtual/input/input* obit          0600  system  system
+/sys/devices/virtual/input/input* prx_hith       0200  system  system
+/sys/devices/virtual/input/input* prx_loth       0200  system  system
+/sys/devices/virtual/input/input* prx_ppulse     0200  system  system
+/sys/devices/virtual/input/input* regacc        0600  system  system
+/sys/devices/virtual/input/input* registers     0400  system  system
+/sys/devices/virtual/input/input* reset         0200  system  system
+/sys/devices/virtual/input/input* selftest      0600  system  system
+/sys/devices/virtual/input/input* single        0200  system  system
+/sys/devices/virtual/smdpkt/smdcntl*       open_timeout   0664 radio radio
