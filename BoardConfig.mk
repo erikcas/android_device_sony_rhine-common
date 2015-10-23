@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-PRODUCT_VENDOR_KERNEL_HEADERS := device/sony/rhine/kernel-headers
+TARGET_KERNEL_SOURCE =: kernel/sony/msm
 
 TARGET_ARCH := arm
 TARGET_ARCH_VARIANT := armv7-a-neon
@@ -114,4 +114,3 @@ ifeq ($(HOST_OS),linux)
 endif
 
 BUILD_KERNEL := true
--include vendor/sony/kernel/KernelConfig.mk
