@@ -219,3 +219,5 @@ $(call add-product-dex-preopt-module-config,services,--compiler-filter=speed)
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     persist.sys.usb.config=mtp \
     persist.data.qmi.adb_logmask=0
+
+$(call inherit-product, vendor/sony/version/version.mk)
