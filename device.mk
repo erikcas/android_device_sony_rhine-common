@@ -220,4 +220,8 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     persist.sys.usb.config=mtp \
     persist.data.qmi.adb_logmask=0
 
+# Enable MultiWindow
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
+    persist.sys.debug.multi_window=true
+
 $(call inherit-product, vendor/sony/version/version.mk)
