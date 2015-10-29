@@ -12,6 +12,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+#GPU
+BOARD_HAS_VENUS_UBWC := false
+BOARD_HAS_VIDC_OPERATING_RATE := false
+BOARD_HAS_VIDC_INSTANCE_PRIORITY := false
+
 # TWRP
 BOARD_HAS_NO_SELECT_BUTTON := true
 
