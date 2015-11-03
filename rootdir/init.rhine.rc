@@ -23,7 +23,7 @@ on init
     symlink /system/vendor/lib/egl /egl
 
     # BoringSSL hacks
-    export LD_PRELOAD "/system/lib/libboringssl-compat.so"
+    export LD_PRELOAD "libboringssl-compat.so"
 
     mkdir /dev/bus 0755 root root
     mkdir /dev/bus/usb 0755 root root
@@ -136,13 +136,6 @@ on boot
     chown media system /sys/class/misc/pm8941-flash/device/startup_delay
     chown media system /sys/class/misc/pm8941-flash/device/strobe
     chown media system /sys/class/misc/pm8941-flash/device/vph_pwr_droop
-
-    # Bring CPUs online
-    write /sys/module/msm_thermal/core_control/enabled 0
-    write /sys/devices/system/cpu/cpu1/online 1
-    write /sys/devices/system/cpu/cpu2/online 1
-    write /sys/devices/system/cpu/cpu3/online 1
-    write /sys/module/msm_thermal/core_control/enabled 1
 
     # Bluetooth device
     chown bluetooth net_bt_stack /dev/ttyHSL0
