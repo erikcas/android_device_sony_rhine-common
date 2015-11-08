@@ -30,6 +30,7 @@
 
 #include <sys/ioctl.h>
 #include <sys/types.h>
+#include <sys/stat.h>
 
 #include <hardware/lights.h>
 
@@ -49,6 +50,7 @@ enum led_ident {
 	LED_GREEN,
 	LED_BLUE,
 	LED_BACKLIGHT,
+	LED_BKLT_MDSS
 };
 
 static struct led_desc {
@@ -62,6 +64,11 @@ static struct led_desc {
 		.max_brightness = 0,
 		.max_brightness_s = "/sys/class/leds/wled:backlight/max_brightness",
 		.brightness = "/sys/class/leds/wled:backlight/brightness",
+	},
+	[LED_BKLT_MDSS] = {
+		.max_brightness = 0,
+		.max_brightness_s = "/sys/class/leds/lcd-backlight/max_brightness",
+		.brightness = "/sys/class/leds/lcd-backlight/brightness",
 	},
 	[LED_RED] = {
 		.max_brightness = 0,
@@ -233,6 +240,30 @@ static void write_led_scaled(enum led_ident id, int brightness,
 	write_int(led_descs[id].brightness, scaled);
 }
 
+#ifdef HAS_DIM_BACKLIGHT
+static void write_led_scaled_dim(enum led_ident id, int brightness,
+		const char *pwm, unsigned int duration)
+{
+	int max_brightness = read_int(led_descs[id].max_brightness_s);
+	int scaled;
+
+	if (brightness > max_brightness)
+		scaled = max_brightness;
+	else
+		scaled = brightness == 0 ? 0 : ((brightness + 255) / 2);
+
+	if (pwm && led_descs[id].pwm)
+		write_string(led_descs[id].pwm, pwm);
+
+	if(duration!=0) {
+		if (led_descs[id].step)
+			write_int(led_descs[id].step, duration);
+	}
+
+	write_int(led_descs[id].brightness, scaled);
+}
+#endif
+
 static int is_lit(struct light_state_t const* state)
 {
 	return state->color & 0x00ffffff;
@@ -248,7 +279,20 @@ static int rgb_to_brightness(struct light_state_t const* state)
 static int set_light_backlight(struct light_device_t *dev, struct light_state_t const *state)
 {
 	pthread_mutex_lock(&g_lock);
+#ifdef HAS_DIM_BACKLIGHT
+	write_led_scaled_dim(LED_BACKLIGHT, rgb_to_brightness(state), NULL, 0);
+#else
 	write_led_scaled(LED_BACKLIGHT, rgb_to_brightness(state), NULL, 0);
+#endif
+	pthread_mutex_unlock(&g_lock);
+
+	return 0;
+}
+
+static int set_light_mdss(struct light_device_t *dev, struct light_state_t const *state)
+{
+	pthread_mutex_lock(&g_lock);
+	write_led_scaled(LED_BKLT_MDSS, rgb_to_brightness(state), NULL, 0);
 	pthread_mutex_unlock(&g_lock);
 
 	return 0;
@@ -338,6 +382,7 @@ static int open_lights(const struct hw_module_t* module,
 {
 	struct light_state_t light_off = { 0 };
 	struct light *light;
+	struct stat buf;
 	int shared_which;
 	int (*set_light)(struct light_device_t* dev,
 					 struct light_state_t const *state);
@@ -350,7 +395,7 @@ static int open_lights(const struct hw_module_t* module,
 	}
 
 	if (strcmp(name, LIGHT_ID_BACKLIGHT) == 0) {
-		set_light = set_light_backlight;
+		set_light = set_light_mdss;
 		shared_which = -1;
 	} else if (strcmp(name, LIGHT_ID_BATTERY) == 0) {
 		set_light = set_light_shared;
@@ -400,7 +445,7 @@ struct hw_module_t HAL_MODULE_INFO_SYM = {
 	.version_major = 1,
 	.version_minor = 0,
 	.id = LIGHTS_HARDWARE_MODULE_ID,
-	.name = "Rhine lights module",
+	.name = "Yukon lights module",
 	.author = "Bjorn Andersson <bjorn.andersson@sonymobile.com>",
 	.methods = &lights_module_methods,
 };
