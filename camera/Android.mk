@@ -12,7 +12,7 @@ LOCAL_SHARED_LIBRARIES := \
     libhardware liblog libcamera_client libutils libcutils
 
 LOCAL_MODULE_PATH := $(TARGET_OUT_VENDOR_SHARED_LIBRARIES)/hw
-LOCAL_MODULE := camera.$(TARGET_DEVICE)
+LOCAL_MODULE := camera.$(SOMC_PLATFORM)
 
 LOCAL_MODULE_TAGS := optional
 
