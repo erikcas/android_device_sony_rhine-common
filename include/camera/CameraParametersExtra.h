@@ -76,7 +76,10 @@ const char CameraParameters::KEY_SONY_ISO_AVAIL_MODES[] = "sony-iso-values"; \
 const char CameraParameters::VALUE_SONY_ON[] = "on"; \
 const char CameraParameters::VALUE_SONY_OFF[] = "off"; \
 const char CameraParameters::VALUE_SONY_STILL_HDR[] = "on-still-hdr"; \
-const char CameraParameters::VALUE_SONY_INTELLIGENT_ACTIVE[] = "on-intelligent-active";
+const char CameraParameters::VALUE_SONY_INTELLIGENT_ACTIVE[] = "on-intelligent-active"; \
+const char CameraParameters::KEY_TRACK_AREAS[] = "track-areas"; \
+const char CameraParameters::FOCUS_MODE_MANUAL_POSITION[] = "manual"; \
+const char CameraParameters::WHITE_BALANCE_MANUAL_CCT[] = "manual-cct";
 
 
 #define CAMERA_PARAMETERS_EXTRA_H \
@@ -139,4 +142,7 @@ const char CameraParameters::VALUE_SONY_INTELLIGENT_ACTIVE[] = "on-intelligent-a
     static const char VALUE_SONY_ON[] ; \
     static const char VALUE_SONY_OFF[] ; \
     static const char VALUE_SONY_STILL_HDR[] ; \
-    static const char VALUE_SONY_INTELLIGENT_ACTIVE[] ;
+    static const char VALUE_SONY_INTELLIGENT_ACTIVE[] ; \
+    static const char KEY_TRACK_AREAS[]; \
+    static const char FOCUS_MODE_MANUAL_POSITION[]; \
+    static const char WHITE_BALANCE_MANUAL_CCT[];
