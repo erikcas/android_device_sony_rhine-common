@@ -462,3 +462,8 @@ service timekeep /system/bin/timekeep restore
    user root
    group root
    oneshot
+
+on property:init.svc.bootanim=running
+    # Clear Sony boot splash
+    write /sys/class/graphics/fb0/blank 1
+    write /sys/class/graphics/fb0/blank 0
