@@ -56,7 +56,7 @@ vidc.debug.level=1
 # Fluencetype can be "fluence" or "fluencepro" or "none"
 persist.audio.fluence.voicecall=true
 persist.audio.fluence.voicerec=false
-persist.audio.fluence.speaker=true
+persist.audio.fluence.speaker=false
 media.aac_51_output_enabled=true
 
 # System prop for NFC DT
