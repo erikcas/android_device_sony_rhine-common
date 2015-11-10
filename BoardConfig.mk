@@ -111,3 +111,8 @@ ifeq ($(HOST_OS),linux)
 endif
 
 BUILD_KERNEL := true
+
+# SELinux
+include device/qcom/aosp-sepolicy/sepolicy.mk
+
+BOARD_SEPOLICY_DIRS += device/sony/rhine-common/sepolicy
