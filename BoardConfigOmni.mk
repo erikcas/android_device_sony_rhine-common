@@ -12,6 +12,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+#UBWC
+BOARD_HAS_VENUS_UBWC := false
+
 # Assert
 TARGET_OTA_ASSERT_DEVICE := D5503,amami
 
