@@ -32,6 +32,17 @@ PRODUCT_PACKAGES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     telephony.lteOnGSMDevice=1
 
+# Additional audio properties
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.audio.fluence.voicecall=true \
+    audio.offload.buffer.size.kb=32 \
+    audio.offload.gapless.enabled=true \
+    use.voice.path.for.pcm.voip=true \
+    av.offload.enable=false \
+    av.streaming.offload.enable=false \
+    audio.offload.pcm.16bit.enable=true \
+    audio.offload.multiple.enabled=false
+
 # Omni specific overlay
 DEVICE_PACKAGE_OVERLAYS += \
     device/sony/rhine-common/overlay-omni
