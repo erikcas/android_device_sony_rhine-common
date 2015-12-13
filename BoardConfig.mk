@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-PRODUCT_VENDOR_KERNEL_HEADERS := device/sony/rhine/kernel-headers
+TARGET_KERNEL_SOURCE =: kernel/sony/msm
 
 TARGET_ARCH := arm
 TARGET_ARCH_VARIANT := armv7-a-neon
@@ -121,3 +121,8 @@ BUILD_KERNEL := true
 include device/qcom/sepolicy/sepolicy.mk
 
 BOARD_SEPOLICY_DIRS += device/sony/rhine/sepolicy
+
+#GPU
+BOARD_HAS_VENUS_UBWC := false
+BOARD_HAS_VIDC_OPERATING_RATE := false
+BOARD_HAS_VIDC_INSTANCE_PRIORITY := false
