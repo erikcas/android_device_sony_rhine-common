@@ -73,7 +73,7 @@ BOARD_USES_ALSA_AUDIO := true
 AUDIO_FEATURE_ENABLED_MULTI_VOICE_SESSIONS := true
 
 #Camera
-USE_DEVICE_SPECIFIC_CAMERA := true
+TARGET_USES_AOSP := true
 BOARD_QTI_CAMERA_32BIT_ONLY := true
 BOARD_QTI_CAMERA_V2 := true
 
@@ -116,6 +116,9 @@ endif
 
 BUILD_KERNEL := true
 -include vendor/sony/kernel/KernelConfig.mk
+
+# Include build helpers for QCOM proprietary
+-include vendor/qcom/proprietary/common/build/proprietary-build.mk
 
 # SELinux
 include device/qcom/sepolicy/sepolicy.mk
